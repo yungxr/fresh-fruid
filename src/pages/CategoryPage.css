@@ -1,0 +1,127 @@
+/* Frutiger Eco: оформление включается только на странице категории. */
+body:has(.eco-page) {
+  background-color:#c1df9b;
+  background-image:url('../assets/eco-background.png');
+  background-position:center center;
+  background-size:cover;
+  background-attachment:fixed;
+  color:#123653;
+}
+body:has(.eco-page) #root { padding:18px 24px 28px; }
+body:has(.eco-page) .app { max-width:1540px; }
+body:has(.eco-page) .brand-row { padding:0 26px 14px; }
+body:has(.eco-page) .brand strong { font-size:56px; }
+body:has(.eco-page) .brand small { font-size:16px; color:#055a9d; }
+body:has(.eco-page) .brand-orb { width:80px; height:80px; background-image:radial-gradient(ellipse at 30% 20%,#fff9,transparent 42%),url('../assets/eco-hero.png');background-position:0 0,100% 50%; background-size:auto,320%; }
+body:has(.eco-page) .brand-motto { color:#377437; }
+/* Прозрачная основа + преломлённый край + белый блик. Текст не размывается. */
+body:has(.eco-page) .glass-nav,
+body:has(.eco-page) .glass-shell {
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(150deg,#ffffff82,#d5fbea58 47%,#ebfff773);
+  border:1px solid #ffffffe6;
+  box-shadow:inset 2px 2px 3px #fff,inset -2px -2px 4px #f6fffbd9,0 0 0 1px #75bba58c,0 12px 30px #22654e32;
+  -webkit-backdrop-filter:blur(16px) saturate(1.45);
+  backdrop-filter:blur(16px) saturate(1.45);
+}
+body:has(.eco-page) .glass-nav::before,
+body:has(.eco-page) .glass-shell::before {
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:-1;
+  background:linear-gradient(166deg,#ffffffc2 0%,#fff0 20%,#fff0 75%,#ffffff80 100%);
+  box-shadow:inset 0 0 0 3px #fff3,inset 0 -5px 8px #74c6b32e;
+}
+body:has(.eco-page) .glass-nav { border-radius:18px; margin-bottom:11px; padding:6px; gap:6px; }
+body:has(.eco-page) .glass-nav a { font-size:16px; padding:11px 23px; border-radius:15px; }
+body:has(.eco-page) .glass-nav .nav-home { background:linear-gradient(#b7f492,#36b953 46%,#058b3e 52%,#159d4a); border-color:#268942;box-shadow:inset 0 2px 2px white,inset 0 -2px 3px #087528,0 3px 8px #286c4f44; }
+body:has(.eco-page) .glass-shell { padding:7px; border-radius:20px; }
+body:has(.eco-page) .site-footer { background:#eefffacc; padding:14px 16px; margin-top:9px; border:1px solid white; border-radius:13px; font-size:12px; }
+.eco-page { color:#123653; }
+.eco-page .breadcrumb { padding:2px 16px 9px; gap:12px; font-size:13px; color:#174e5d; }
+.eco-page .breadcrumb a { text-decoration:none; }
+.eco-page .breadcrumb a:hover { text-decoration:underline; }
+.eco-demo { margin-left:auto; font-size:10px; color:#397665; }
+.eco-layout { display:grid; grid-template-columns:minmax(0,2.78fr) minmax(285px,1fr); gap:11px; align-items:start; }
+.eco-layout main,.eco-sidebar { display:grid; gap:11px; min-width:0; }
+.eco-hero,.eco-panel,.eco-promise {
+  border:1px solid #ffffff;
+  border-radius:15px;
+  box-shadow:inset 0 2px 2px #fff,inset 0 -2px 3px #ffffffe0,0 0 0 1px #86cbbb80,0 5px 13px #2c6f522b;
+}
+.eco-hero { position:relative; overflow:hidden; isolation:isolate; min-height:255px; padding:26px 28px; background:url('../assets/eco-hero.png') right center / cover; }
+.eco-hero::after { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; box-shadow:inset 0 0 0 3px #ffffff70,inset 0 -8px 15px #d7fff173; background:linear-gradient(165deg,#fff5,transparent 22%,transparent 84%,#fff7); z-index:2; }
+.eco-hero>h1,.eco-hero>p,.eco-hero>div { position:relative; z-index:1; }
+.eco-hero h1 { font-size:clamp(27px,2.9vw,44px); letter-spacing:-1.3px; line-height:1.12; color:#092d58; font-weight:750; margin:0 0 10px; max-width:88%; text-shadow:0 2px 1px #fff; }
+.eco-hero p { font-size:clamp(14px,1.4vw,21px); color:#173861; line-height:1.4; max-width:77%; text-shadow:0 1px white; }
+.eco-metrics { display:flex; flex-wrap:wrap; gap:20px; margin:19px 0 22px; font-size:15px; color:#143d62; align-items:center; }
+.eco-metrics>span { display:inline-flex; gap:8px; align-items:center; }
+.eco-metrics>span+span { border-left:1px solid #89c8c2; padding-left:20px; }
+.eco-metrics b { color:#00809b; font-size:23px; line-height:1; }
+.eco-page .online-dot { width:16px; height:16px; margin-right:0; background:radial-gradient(at 32% 22%,#e4ffdd,#66d04c 45%,#118737);border:1px solid #96c98b;box-shadow:inset 0 1px 2px white,0 2px 5px #32704730; }
+.eco-hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.eco-page button { min-height:40px; padding:9px 19px; border-radius:16px; font-size:14px; color:#0e5268; border:1px solid #acdadb; background:linear-gradient(170deg,#fffffff2,#f1fffacc 46%,#d9f4eec4 51%,#f7fffcf0);box-shadow:inset 0 2px 2px white,inset 0 -1px 2px #fff,0 3px 8px #286e5a24; }
+.eco-page button>span { font-size:22px; line-height:1; }
+.eco-page .eco-primary,.eco-page .eco-tabs .selected { color:#fff; border:1px solid #279d3d; text-shadow:0 1px 2px #145c25; background:linear-gradient(#9ce775,#25b345 45%,#008c32 52%,#0ba641);box-shadow:inset 0 2px 3px #fff,inset 0 -2px 4px #087226,0 4px 10px #236f4544,0 0 0 2px #ffffffb0; }
+.eco-page .eco-primary[aria-pressed="true"] { background:linear-gradient(#f4ffe8,#c8eeb5);color:#286839;text-shadow:none; }
+.eco-hero-actions button { border-radius:24px; min-width:177px; min-height:46px; font-size:16px; }
+.eco-panel { position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(125deg,#fffffff0,#effff8dd 54%,#d8f5e8c9); -webkit-backdrop-filter:blur(20px) saturate(1.4); backdrop-filter:blur(20px) saturate(1.4); }
+.eco-panel::after { content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit; box-shadow:inset 2px 2px 3px #fff,inset -2px -2px 3px #ffffffbd; background:linear-gradient(164deg,#fff5,transparent 20%,transparent 88%,#fff4); z-index:2; }
+.eco-panel-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:13px 17px; min-height:50px; border-bottom:1px solid #d0e9e6; background:linear-gradient(#ffffff94,#dff4ee6b); }
+.eco-panel-heading h2 { display:flex; align-items:center; gap:11px; color:#093452; font-size:20px; line-height:1.2; }
+.eco-info-icon { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; color:white; font-size:20px; font-family:Georgia,serif; font-style:normal; background:linear-gradient(#39bea5,#008491 50%,#00636d);box-shadow:inset 0 2px 2px white,0 2px 3px #13556330; flex-shrink:0; }
+.eco-discussion-heading { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:17px 19px 12px; }
+.eco-discussion-heading h2 { display:flex;align-items:center;gap:14px;font-size:27px; color:#082b50; }
+.eco-discussion-heading button { border-radius:26px; min-height:45px; }
+.eco-leaf { display:block;width:26px;height:33px;border-radius:95% 0 95% 0; background:linear-gradient(145deg,#d0f39e,#56ad41 44%,#ade577 49%,#298143 52%,#81c955);border:1px solid #79b35d;transform:rotate(15deg);box-shadow:inset 1px 1px 3px #ffffff99; }
+.eco-tabs { display:flex; flex-wrap:wrap; gap:3px; padding:0 18px 10px; }
+.eco-page .eco-tabs button { min-height:32px; padding:6px 19px; border-radius:8px; font-size:13px; min-width:132px; }
+.eco-tabs button>span { font-size:20px; }
+.eco-topic-list { margin:0 12px; padding:0 7px; border:1px solid #b8dbd9; border-radius:10px; background:#ffffff55; overflow:hidden; }
+.eco-topic-row { display:grid; grid-template-columns:118px minmax(0,1fr) 126px 129px; align-items:center; gap:18px; padding:9px 0; min-height:91px; border-bottom:1px solid #d3e5ec; }
+.eco-topic-row:last-child { border:0; }
+.eco-topic-row:hover { background:#edfff680; }
+.eco-topic-art { display:block; height:72px; width:118px; border-radius:7px; background-image:url('../assets/eco-thumbnails.png');background-size:300% 200%;border:1px solid #bddec4; box-shadow:inset 0 1px 2px white; }
+.art-portal { background-position:0 0; }.art-desktop { background-position:50% 0; }.art-icq { background-position:100% 0; }.art-homepage { background-position:0 100%; }.art-winamp { background-position:50% 100%; }
+.eco-topic-copy { min-width:0; }
+.eco-topic-copy h3 { font-size:17px; line-height:1.35; color:#062b73; font-weight:700; }
+.eco-topic-copy p { display:flex; align-items:center; flex-wrap:wrap; gap:10px; color:#4c70a0; font-size:12px; margin-top:5px; }
+.eco-topic-copy strong { color:#004286; }
+.eco-pin { display:inline-block; padding:3px 8px; margin-left:8px; font-size:11px; color:#285b38; background:#e0f5dc; border-radius:5px; white-space:nowrap; font-weight:400; }
+.eco-topic-stats { display:flex; align-items:center; gap:18px; font-size:13px; color:#456da0; }
+.eco-topic-stats>span { display:inline-flex;align-items:center;gap:7px; }
+.eco-topic-stats b { font-weight:400; color:#6385a1; font-size:19px; }
+.eco-last { display:grid; gap:2px; padding-left:15px; border-left:1px solid #d5e4ed; font-size:12px; line-height:1.55; color:#5876a2; }
+.eco-list-bottom { display:flex;align-items:center;gap:14px; padding:12px 16px; color:#5e8475;font-size:11px; }
+.eco-page-number { display:grid;place-items:center;width:45px;height:33px;border:1px solid #26983d;border-radius:9px;background:linear-gradient(#8ed960,#0e943d);box-shadow:inset 0 2px 2px #fff,0 2px 3px #36684440; color:white;font-size:15px; }
+.eco-side-copy { padding:15px 20px; }
+.eco-side-copy p { color:#193d64; font-size:15px; line-height:1.6; margin-bottom:14px; }
+.eco-side-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); padding-top:14px; border-top:1px solid #d2e8e3; }
+.eco-side-stats>span { padding-left:12px; border-right:1px solid #d0e6e3; }
+.eco-side-stats>span:last-child { border:0; }
+.eco-side-stats b { display:block; font-size:21px;color:#173b5e; }
+.eco-side-stats small { font-size:11px;color:#5376a1; }
+.eco-members { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:17px 15px 20px;text-align:center; }
+.eco-member-avatar { display:block; width:64px;height:64px;max-width:100%;aspect-ratio:1;border:3px solid white;border-radius:50%;margin:0 auto 9px;background-image:url('../assets/eco-thumbnails.png');background-size:300% 200%;box-shadow:0 0 0 1px #60abcc,0 4px 6px #225a6533; }
+.member-0 { background-position:50% 0; }.member-1 { background-position:100% 100%; }.member-2 { background-position:0 100%; }.member-3 { background-image:url('../assets/eco-hero.png'); background-position:right center;background-size:350%; }
+.eco-members strong { font-size:13px;color:#07365c; }
+.eco-rules { counter-reset:rule;list-style:none; margin:0;padding:0 19px; }
+.eco-rules li { display:flex;align-items:center;gap:14px;counter-increment:rule; padding:13px 0;border-bottom:1px solid #d9ebe3;font-size:13px;line-height:1.5;color:#163f68; }
+.eco-rules li:last-child { border:0; }
+.eco-rules li::before { content:counter(rule);display:grid;place-items:center;flex-shrink:0;width:28px;height:28px;border-radius:50%;color:white;font-size:18px;background:linear-gradient(#b0e69b,#43b249 46%,#04853d 51%,#2ba957);border:1px solid #86ba86;box-shadow:inset 0 1px 2px white,0 2px 3px #2e6e5030; }
+.eco-promise { min-height:170px; padding:22px 16px 22px 40%; background:linear-gradient(90deg,transparent,#f5fff3c0 42%,#f7fff1e6 65%),url('../assets/eco-hero.png') right center / cover; }
+.eco-promise h2 { font-size:20px;line-height:1.2;color:#075b52;letter-spacing:-.5px; }
+.eco-promise p { font-size:12px;line-height:1.6;margin-top:12px;color:#3c665d; }
+.eco-create-form { display:flex; flex-wrap:wrap;gap:10px;padding:14px 18px;background:#e4f6e8;border-top:1px solid #c3ddc7;border-bottom:1px solid #c3ddc7; }
+.eco-create-form label { width:100%;font-weight:600;color:#205c40; }
+.eco-create-form input { flex:1; min-width:180px; border:1px solid #9dbeb0;border-radius:8px;padding:10px;font:inherit;background:white; }
+.eco-page button:disabled { color:#78938a;background:#e3eee7;box-shadow:none;border-color:#bacbc1; }
+@media(max-width:1200px) { .eco-layout { grid-template-columns:minmax(0,1fr) 290px; } .eco-topic-row { grid-template-columns:85px minmax(0,1fr) 90px;gap:12px; } .eco-topic-art { width:85px;height:63px; } .eco-last { display:none; }.eco-topic-stats { gap:10px;font-size:12px; }.eco-topic-copy h3 { font-size:15px; }.eco-hero h1 { max-width:100%;font-size:34px; }.eco-hero p { font-size:16px;max-width:85%; }.eco-members { gap:5px;padding:17px 11px; }.eco-member-avatar { width:54px;height:54px; }.eco-members strong { font-size:11px; }.eco-panel-heading h2 { font-size:18px; }.eco-discussion-heading h2 { font-size:23px; }.eco-metrics { font-size:13px;gap:13px; }.eco-metrics>span+span { padding-left:13px; } }
+@media(max-width:900px) { .eco-layout { grid-template-columns:1fr; }.eco-sidebar { grid-template-columns:repeat(2,minmax(0,1fr)); }.eco-hero h1 { font-size:35px; }.eco-topic-row { grid-template-columns:100px minmax(0,1fr) 115px 129px; }.eco-topic-art { width:100px; }.eco-last { display:grid; }.eco-hero p { max-width:75%; }.eco-member-avatar { width:64px;height:64px; }body:has(.eco-page) .brand-motto { display:none; } }
+@media(max-width:600px) { body:has(.eco-page) #root { padding:12px 8px 22px; }body:has(.eco-page) .brand-row { padding:0 6px 14px; }body:has(.eco-page) .brand strong { font-size:37px; }body:has(.eco-page) .brand small { font-size:11px; }body:has(.eco-page) .brand-orb { width:54px;height:54px; }body:has(.eco-page) .glass-nav a { padding:10px 5px;font-size:11px;border-radius:9px; }body:has(.eco-page) .glass-nav { gap:2px;border-radius:13px; }body:has(.eco-page) .glass-shell { padding:6px;border-radius:16px; }.eco-page .breadcrumb { gap:5px;flex-wrap:wrap;padding:3px 6px 10px;font-size:10px; }.eco-demo { display:none; }.eco-hero { padding:23px 18px;min-height:265px; background-position:75% center; }.eco-hero::before { content:"";position:absolute;inset:0;background:linear-gradient(90deg,#f5fff7eb,#f5fff7d1 60%,#fff3); }.eco-hero h1 { font-size:28px;letter-spacing:-.7px;max-width:100%; }.eco-hero p { font-size:14px;max-width:100%; }.eco-metrics { gap:9px;font-size:11px;margin:18px 0; }.eco-metrics>span+span { padding-left:9px; }.eco-metrics b { font-size:17px; }.eco-page .online-dot { width:12px;height:12px; }.eco-hero-actions { gap:8px; }.eco-hero-actions button { min-width:0;min-height:42px;font-size:12px;padding:8px 12px; }.eco-discussion-heading { padding:14px 12px;gap:9px;flex-wrap:wrap; }.eco-discussion-heading h2 { font-size:21px;gap:9px; }.eco-leaf { width:20px;height:25px; }.eco-discussion-heading button { min-height:36px;padding:7px 12px;font-size:12px; }.eco-tabs { padding:0 11px 10px;gap:4px; }.eco-page .eco-tabs button { min-width:0;flex:1;padding:6px;font-size:11px; }.eco-topic-list { margin:0 7px;padding:0 7px; }.eco-topic-row { grid-template-columns:65px minmax(0,1fr); gap:8px 11px;padding:12px 0;min-height:100px; }.eco-topic-art { width:65px;height:57px;grid-row:span 2; }.eco-topic-copy h3 { font-size:14px; }.eco-topic-copy p { font-size:10px;gap:5px; }.eco-topic-stats { grid-column:2;font-size:11px;gap:16px; }.eco-topic-stats b { font-size:14px; }.eco-last { display:none; }.eco-pin { margin:5px 0 0;font-size:10px; }.eco-sidebar { grid-template-columns:1fr; }.eco-panel-heading h2 { font-size:18px; }.eco-side-copy p { font-size:14px; }.eco-promise { min-height:165px;padding-left:44%; }.eco-members strong { font-size:12px; }body:has(.eco-page) .site-footer { font-size:10px;padding:12px; }.eco-create-form input { min-width:0;width:100%;flex-basis:100%; } }
+@supports not (backdrop-filter:blur(1px)) { body:has(.eco-page) .glass-nav,body:has(.eco-page) .glass-shell { background:#e4f5e6e8; }.eco-panel { background:#f0fbf4; } }
+body:has(.eco-page) .app { width:88%; }
+body:has(.eco-page) .site-footer { flex-wrap:wrap; }
+.eco-hero { background-image:linear-gradient(90deg,#f4fff8b3,transparent 68%),url('../assets/eco-hero.png'); }
+@media(max-width:1200px) { body:has(.eco-page) .app { width:100%; } }
+@media(max-width:360px) { body:has(.eco-page) .glass-nav { gap:0;padding:4px; }body:has(.eco-page) .glass-nav a { font-size:10px;padding:10px 3px;min-width:0; } }
+@media(max-width:900px) { .eco-panel { -webkit-backdrop-filter:none;backdrop-filter:none;background:linear-gradient(125deg,#fffffff0,#effff8ed 54%,#d8f5e8eb); } }

@@ -1,0 +1,1166 @@
+/* 1. Пейзаж за стеклом */
+body {
+  background-image:
+    linear-gradient(180deg, #bceeff12, #0083aa20),
+    url("./assets/aerosphere-bg.png");
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+  padding: 22px 24px 48px;
+}
+
+.app {
+  max-width: 1260px;
+  margin: auto;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.brand strong {
+  display: block;
+  font-size: 49px;
+  font-style: italic;
+  font-weight: 750;
+  letter-spacing: -2.5px;
+  line-height: 1.08;
+  color: #006baf;
+  text-shadow:
+    0 2px 0 white,
+    0 4px 16px #fff;
+}
+
+.brand strong span {
+  color: #337e12;
+}
+
+.brand small {
+  display: block;
+  font-size: 14px;
+  color: #075582;
+  text-shadow: 0 1px 3px white;
+  margin-top: 5px;
+}
+
+.brand-motto {
+  color: #13598c;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+  text-align: right;
+  transform: rotate(-7deg);
+  text-shadow: 0 1px 5px white;
+}
+
+.brand-motto span {
+  border-bottom: 2px solid #2589b1;
+  padding: 0 8px 3px;
+}
+
+/* 2. Стеклянные сферы: фон, внутренний свет и отражение */
+.brand-orb,
+.hero-orb {
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, #ffffffc9 0%, transparent 42%),
+    url("./assets/aerosphere-bg.png") 66% 35% / 340%;
+  border: 1px solid #e6ffff;
+  box-shadow:
+    inset 3px 3px 6px #fff,
+    inset -8px -8px 16px #006d989c,
+    0 0 0 2px #209ac199,
+    0 8px 15px #00405a44;
+}
+
+.brand-orb {
+  width: 70px;
+  height: 70px;
+}
+
+.brand-orb::after,
+.hero-orb::after {
+  content: "";
+  position: absolute;
+  inset: 5% 10% 51%;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #ffffffd9, #ffffff0d);
+  transform: rotate(-18deg);
+}
+
+.brand-orb span,
+.orb-leaf {
+  position: absolute;
+  width: 49%;
+  height: 29%;
+  bottom: 12%;
+  right: 0;
+  border-radius: 90% 0 90% 0;
+  transform: rotate(-25deg);
+  background: linear-gradient(155deg,
+      #e7ffae,
+      #6bbb17 47%,
+      #2c8515 50%,
+      #98d334);
+  border: 1px solid #d3f497;
+  box-shadow: 0 3px 4px #185e5544;
+  z-index: 1;
+}
+
+.glass-nav,
+.glass-shell {
+  background: linear-gradient(135deg, #ffffff7d, #c4efff66 42%, #d9f9ff91);
+  border: 1px solid #f4ffffe6;
+  box-shadow:
+    inset 0 1px 0 white,
+    inset 0 -1px 1px #fff9,
+    0 0 0 1px #3eadd266,
+    0 12px 32px #00567930;
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+}
+
+.glass-nav {
+  display: flex;
+  gap: 5px;
+  padding: 6px;
+  align-items: center;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+
+.glass-nav a {
+  padding: 10px 22px;
+  text-decoration: none;
+  border-radius: 11px;
+  color: #155581;
+  font-weight: 600;
+  border: 1px solid transparent;
+  text-shadow: 0 1px #fff9;
+  transition: background 0.2s;
+}
+
+.glass-nav a>span {
+  font-size: 21px;
+  line-height: 1;
+  vertical-align: -1px;
+  margin-right: 5px;
+}
+
+.glass-nav a:hover {
+  background: #ffffff88;
+  border-color: #fff;
+}
+
+.glass-nav a.nav-home {
+  color: white;
+  border-color: #569d31;
+  text-shadow: 0 1px 2px #346d15;
+  background: linear-gradient(#c4e988, #83c644 47%, #53a323 50%, #73b638);
+  box-shadow:
+    inset 0 1px 2px white,
+    0 2px 4px #356a4233;
+}
+
+.nav-status {
+  margin-left: auto;
+  padding: 0 18px;
+  color: #275c75;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.online-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(#b7f386, #398b1d);
+  box-shadow: 0 0 5px #93ed5266;
+  margin-right: 5px;
+}
+
+.glass-shell {
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.breadcrumb {
+  padding: 1px 7px 12px;
+  color: #275a79;
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.breadcrumb>span:not(.demo-label) {
+  opacity: 0.5;
+}
+
+.demo-label {
+  margin-left: auto;
+  font-size: 11px;
+}
+
+.forum-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 285px;
+  gap: 14px;
+  align-items: start;
+}
+
+main,
+.sidebar {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* 3. Приветственный баннер */
+.welcome {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 276px;
+  padding: 28px 30px;
+  border: 1px solid white;
+  border-radius: 12px;
+  background:
+    linear-gradient(90deg, #edfbfff5 0%, #e3f8ffbd 44%, #d4f6ff00 75%),
+    url("./assets/aerosphere-bg.png") center 32% / cover;
+  box-shadow:
+    inset 0 0 0 2px #ffffff55,
+    0 3px 10px #136a9526;
+}
+
+.welcome-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.65px;
+  font-weight: 700;
+  color: #296b88;
+}
+
+.welcome h1 {
+  font-size: clamp(27px, 2.5vw, 37px);
+  color: #0b5183;
+  letter-spacing: -1.3px;
+  line-height: 1.13;
+  margin: 10px 0;
+  text-shadow: 0 2px 0 #ffffffaa;
+}
+
+.welcome p {
+  color: #276181;
+  line-height: 1.5;
+  margin-bottom: 19px;
+}
+
+.hero-orb {
+  position: absolute;
+  right: 6%;
+  top: 37px;
+  width: 186px;
+  height: 186px;
+  animation: float 7s ease-in-out infinite;
+}
+
+.welcome-caption {
+  position: absolute;
+  bottom: 17px;
+  right: 22px;
+  font-size: 11px;
+  color: white;
+  text-shadow: 0 1px 4px #00415a;
+  font-style: italic;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* 4. Панели и плотные строки форума */
+.panel {
+  overflow: hidden;
+  border: 1px solid #84c6df;
+  border-radius: 12px;
+  background: #f5fcfff0;
+  box-shadow:
+    0 2px 5px #22617a12,
+    inset 0 0 0 1px white;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 15px;
+  border-bottom: 1px solid #b7dfef;
+  background: linear-gradient(#f7fdff, #d5effbbb);
+  box-shadow: inset 0 1px white;
+}
+
+.panel-heading h2 {
+  color: #0b548b;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.panel-heading h2>span:not(.online-dot) {
+  color: #2198d3;
+  margin-right: 6px;
+}
+
+.panel-heading>span {
+  font-size: 11px;
+  color: #426e85;
+}
+
+.category-row {
+  display: grid;
+  grid-template-columns: 49px minmax(0, 1fr) 141px;
+  gap: 14px;
+  padding: 18px 17px;
+  align-items: center;
+  border-bottom: 1px solid #d0e7ef;
+  background: linear-gradient(100deg, #ffffff80, #eaf7fe40);
+}
+
+.category-row:last-child,
+.topic-row:last-child {
+  border-bottom: 0;
+}
+
+.category-row:hover,
+.topic-row:hover {
+  background-color: #e4f7ff;
+}
+
+.category-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 30px;
+  background: linear-gradient(#a8e8ff, #2db9f0 47%, #0092d0 51%, #3cc5f4);
+  box-shadow:
+    inset 0 2px 3px #fff,
+    inset 0 -3px 5px #006faa55,
+    0 0 0 1px #45b8e8,
+    0 3px 5px #26789d25;
+  text-shadow: 0 2px 2px #0072a477;
+}
+
+.category-icon.green {
+  background: linear-gradient(#d4f89c, #99ca47 47%, #61a122 51%, #8bcb4a);
+  box-shadow:
+    inset 0 2px 3px white,
+    0 0 0 1px #93c264,
+    0 3px 5px #4b942925;
+}
+
+.category-icon.purple {
+  background: linear-gradient(#d9c6ff, #aa85ed 47%, #7c4fc6 51%, #b38bea);
+  box-shadow:
+    inset 0 2px 3px white,
+    0 0 0 1px #b5a1dc,
+    0 3px 5px #57319c25;
+}
+
+.category-copy h3,
+.topic-copy h3 {
+  font-size: 15px;
+  color: #076aab;
+  line-height: 1.3;
+}
+
+.category-copy p {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #557287;
+  margin-top: 5px;
+  max-width: 370px;
+}
+
+.membership-status,
+.joined-status {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: #5c7788;
+}
+
+.joined-status {
+  color: #37771f;
+}
+
+.category-controls {
+  text-align: right;
+}
+
+.category-online {
+  font-size: 11px;
+  display: block;
+  margin-bottom: 9px;
+  color: #376780;
+}
+
+.category-online small {
+  font-size: 9px;
+  color: #617b87;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+/* 5. Глянцевые кнопки и состояния */
+button,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border: 1px solid #8bbdd1;
+  border-radius: 8px;
+  background: linear-gradient(#ffffff, #e8f7fd 47%, #cde9f5 51%, #e1f3fc);
+  color: #1b6087;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow:
+    inset 0 1px 1px white,
+    0 2px 3px #215c741a;
+  transition:
+    box-shadow 0.18s,
+    transform 0.18s,
+    filter 0.18s;
+}
+
+button:not(:disabled):hover,
+.button:hover {
+  filter: brightness(1.04);
+  box-shadow:
+    inset 0 1px 2px white,
+    0 0 0 3px #45bdeb22,
+    0 3px 9px #2079a92b;
+  transform: translateY(-1px);
+}
+
+button:not(:disabled):active,
+.button:active {
+  transform: translateY(1px);
+}
+
+button.primary,
+.button.primary {
+  border-color: #087bb7;
+  color: white;
+  background: linear-gradient(#70d7ff, #24acee 47%, #0086d0 51%, #159ee5);
+  text-shadow: 0 1px #006098;
+  box-shadow:
+    inset 0 1px 1px #edfcff,
+    0 3px 6px #126e9e33;
+}
+
+.welcome .button {
+  padding: 10px 19px;
+  border-radius: 22px;
+  font-size: 13px;
+}
+
+button:disabled {
+  background: #e1ebef;
+  color: #6b808b;
+  border-color: #c5d4dc;
+  box-shadow: none;
+}
+
+.favorite-button {
+  padding: 3px 9px;
+  font-size: 20px;
+}
+
+button[aria-pressed="true"] {
+  color: #397119;
+  border-color: #a9c880;
+  background: linear-gradient(#f6ffe9, #ddf2b9);
+}
+
+.topic-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 17px;
+  border-bottom: 1px solid #d0e7ef;
+}
+
+.topic-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  background: linear-gradient(145deg, #b3edfa, #329bbb 55%, #24638c);
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 1px #afd2de;
+}
+
+.topic-row:nth-child(3) .topic-avatar {
+  background: linear-gradient(145deg, #dcf3b0, #639948);
+}
+
+.topic-row:nth-child(4) .topic-avatar {
+  background: linear-gradient(145deg, #dfccf7, #8261a9);
+}
+
+.topic-row:nth-child(5) .topic-avatar {
+  background: linear-gradient(145deg, #ffe7b6, #c18a3f);
+}
+
+.topic-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.topic-copy h3 {
+  font-size: 13px;
+}
+
+.topic-copy p {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #58778a;
+}
+
+.topic-copy p span {
+  margin-left: 5px;
+}
+
+.topic-actions {
+  min-width: 128px;
+  text-align: right;
+}
+
+.like-button {
+  font-size: 10px;
+  padding: 5px 9px;
+}
+
+.like-button>span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.topic-actions small {
+  display: block;
+  font-size: 10px;
+  color: #55758a;
+  margin-top: 4px;
+}
+
+/* 6. Правая колонка */
+.side-content {
+  padding: 16px;
+}
+
+.side-intro {
+  color: #295b75;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.side-content p:not(.side-intro) {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #537386;
+  margin-bottom: 13px;
+}
+
+.avatar-line {
+  display: flex;
+  gap: 9px;
+  margin: 13px 0;
+}
+
+.avatar-line span {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #bed8df;
+  border-radius: 50%;
+  background: url("./assets/aerosphere-bg.png") 20% 20% / 500%;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 1px 4px #003a59;
+}
+
+.avatar-line span:nth-child(2) {
+  background-position: 95% 15%;
+}
+
+.avatar-line span:nth-child(3) {
+  background-position: 40% 55%;
+}
+
+.avatar-line span:nth-child(4) {
+  background-position: 85% 45%;
+}
+
+.side-content .button {
+  width: 100%;
+  font-size: 11px;
+}
+
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 15px 13px;
+  border-bottom: 1px solid #d9eaf1;
+}
+
+.side-link:last-child {
+  border-bottom: none;
+}
+
+.side-link:hover {
+  background: #def3fb;
+}
+
+.number-badge {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(#f7ffec, #c7e8b5);
+  border: 1px solid #c8e1be;
+  color: #4a7825;
+  font-size: 12px;
+}
+
+.side-link strong {
+  display: block;
+  font-size: 12px;
+  color: #175f8e;
+  font-weight: 600;
+}
+
+.side-link small {
+  display: block;
+  font-size: 10px;
+  color: #5e7887;
+  margin-top: 3px;
+}
+
+.side-link b {
+  margin-left: auto;
+  color: #66add1;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.stats {
+  margin: 0;
+  padding: 10px 16px;
+}
+
+.stats div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px dotted #c5dce5;
+}
+
+.stats div:last-child {
+  border: 0;
+}
+
+.stats dt {
+  font-size: 12px;
+  color: #557185;
+}
+
+.stats dd {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #115586;
+}
+
+.side-note {
+  padding: 0 16px 15px;
+  font-size: 10px;
+  color: #59778a;
+  line-height: 1.6;
+}
+
+.nature-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 210px;
+  padding: 24px;
+  border: 1px solid white;
+  border-radius: 12px;
+  background:
+    linear-gradient(120deg, #f0ffecf5, #ddf8debb),
+    url("./assets/aerosphere-bg.png") 0 20% / 400%;
+  box-shadow: inset 0 0 15px #fff9;
+}
+
+.nature-card h2 {
+  position: relative;
+  font-size: 22px;
+  color: #376a37;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.nature-card p {
+  position: relative;
+  color: #527853;
+  font-size: 12px;
+  margin-top: 11px;
+}
+
+.nature-tag {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #4e7450;
+  margin-top: 21px;
+}
+
+.nature-leaf {
+  position: absolute;
+  right: -8px;
+  bottom: 0;
+  font-size: 140px;
+  line-height: 1;
+  transform: rotate(-25deg);
+  color: #5b9d4950;
+}
+
+/* 7. Магазин — прежняя логика корзины */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shop-card {
+  padding: 14px;
+  border-right: 1px solid #d5e7ef;
+  min-width: 0;
+}
+
+.shop-card:last-child {
+  border-right: 0;
+}
+
+.product-art {
+  height: 92px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at bottom, #bde8f688, transparent 70%);
+  border-radius: 9px;
+  margin-bottom: 12px;
+}
+
+.product-orb {
+  position: relative;
+  z-index: 1;
+  width: 63px;
+  height: 63px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 30% 20%,
+      white,
+      #a4edff 19%,
+      #36bedd 45%,
+      #087bab 78%,
+      #7be1f5);
+  box-shadow:
+    inset -3px -4px 5px #177caa,
+    inset 2px 2px 3px white,
+    0 9px 12px #2d839733;
+}
+
+.shop-card:nth-child(2) .product-orb {
+  filter: hue-rotate(250deg);
+}
+
+.shop-card:nth-child(3) .product-orb {
+  filter: hue-rotate(60deg);
+}
+
+.product-pedestal {
+  position: absolute;
+  bottom: 5px;
+  width: 94px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: linear-gradient(#e8faff, #b9dce9);
+}
+
+.product-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.product-title h3 {
+  font-size: 14px;
+  color: #0c6293;
+}
+
+.product-title strong {
+  font-size: 16px;
+  color: #226439;
+  white-space: nowrap;
+}
+
+.product-description {
+  font-size: 12px;
+  color: #628092;
+  margin: 3px 0 8px;
+}
+
+.stock-label {
+  font-size: 10px;
+  color: #507186;
+}
+
+.cart-status {
+  margin: 6px 0 11px;
+  color: #466b7e;
+  font-size: 10px;
+  min-height: 29px;
+}
+
+.cart-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.cart-controls button:first-child {
+  font-size: 18px;
+  padding: 4px 10px;
+}
+
+.cart-controls .primary {
+  flex: 1;
+  font-size: 10px;
+  padding: 7px 5px;
+}
+
+.shop-favorite {
+  width: 100%;
+  font-size: 10px;
+  margin-top: 7px;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 17px 6px 3px;
+  color: #2d5c77;
+  font-size: 11px;
+  text-shadow: 0 1px #ffffffaa;
+}
+
+.site-footer a {
+  text-decoration: none;
+}
+
+/* 8. Планшет и телефон */
+@media (min-width: 1500px) {
+  #root {
+    padding-top: 35px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .forum-layout {
+    grid-template-columns: minmax(0, 1fr) 245px;
+  }
+
+  .nav-status {
+    display: none;
+  }
+
+  .hero-orb {
+    width: 135px;
+    height: 135px;
+    top: 70px;
+    right: 3%;
+    opacity: 0.8;
+  }
+
+  .category-row {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .category-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+
+  .category-controls {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .category-online {
+    margin: 0;
+  }
+
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-card {
+    border-right: 0;
+    border-bottom: 1px solid #d5e7ef;
+  }
+
+  .shop-card:last-child {
+    border-bottom: 0;
+  }
+
+  .product-art {
+    float: left;
+    width: 95px;
+    margin-right: 15px;
+    height: 110px;
+  }
+
+  .cart-controls {
+    clear: both;
+  }
+}
+
+@media (max-width: 760px) {
+  #root {
+    padding: 14px 10px 25px;
+  }
+
+  .brand-row {
+    padding: 3px 5px 17px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand strong {
+    font-size: 36px;
+    letter-spacing: -1.7px;
+  }
+
+  .brand small {
+    font-size: 11px;
+  }
+
+  .brand-orb {
+    width: 51px;
+    height: 51px;
+  }
+
+  .brand-motto {
+    display: none;
+  }
+
+  .glass-nav {
+    gap: 2px;
+    border-radius: 12px;
+  }
+
+  .glass-nav a {
+    padding: 9px 6px;
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+  }
+
+  .glass-nav a>span {
+    display: none;
+  }
+
+  .glass-shell {
+    padding: 8px;
+  }
+
+  .breadcrumb {
+    font-size: 10px;
+    flex-wrap: wrap;
+    padding-bottom: 9px;
+    gap: 5px;
+  }
+
+  .demo-label {
+    font-size: 9px;
+  }
+
+  .forum-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome {
+    padding: 24px 20px;
+    min-height: 276px;
+  }
+
+  .welcome h1 {
+    font-size: 32px;
+  }
+
+  .hero-orb {
+    width: 140px;
+    height: 140px;
+    opacity: 0.5;
+    right: -27px;
+    top: 75px;
+  }
+
+  .welcome-caption {
+    display: none;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .welcome p {
+    font-size: 13px;
+  }
+
+  .panel-heading {
+    padding: 11px 12px;
+  }
+
+  .panel-heading h2 {
+    font-size: 14px;
+  }
+
+  .panel-heading>span {
+    font-size: 9px;
+  }
+
+  .category-row {
+    padding: 15px 12px;
+    gap: 10px;
+  }
+
+  .category-copy h3 {
+    font-size: 14px;
+  }
+
+  .category-copy p {
+    font-size: 11px;
+  }
+
+  .topic-row {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 12px;
+  }
+
+  .topic-copy {
+    flex-basis: calc(100% - 48px);
+  }
+
+  .topic-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 45px;
+    text-align: left;
+  }
+
+  .topic-actions small {
+    margin: 0;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    font-size: 10px;
+    align-items: baseline;
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+
+  .glass-shell,
+  .glass-nav {
+    background: #d9f1f9ed;
+  }
+}
+
+.category-row {
+  position: relative;
+}
+
+.category-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.category-buttons {
+  position: relative;
+  z-index: 1;
+}
